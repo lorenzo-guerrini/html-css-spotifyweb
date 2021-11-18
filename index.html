@@ -190,19 +190,22 @@
             <!-- Barra di riproduzione in basso -->
             <div class="play-bar">
                 <footer>
-                    <div class="play-bar-section">
+                    <section class="play-bar-section left">
                         <div class="playing-song">
-                            <img src="" alt="">
-                            <div class="playing-song-title">Sinister</div>
-                            <div class="playing-song-artist">Brano Nome</div>
+                            <img src="img/sinister.jpeg" alt="sinister">
+                            <div class="playing-song-info">
+                                <div class="playing-song-title small-text">Sinister</div>
+                                <div class="playing-song-artist smaller-text">Brano Nome</div>
+                            </div>
                         </div>
 
                         <div class="like-save-container">
                             <i class="far fa-heart"></i>
                             <i class="far fa-folder"></i>
                         </div>
-                    </div>
-                    <div class="play-bar-section">
+                    </section>
+                    
+                    <section class="play-bar-section center">
                         <div class="song-player-controls">
                             <i class="fas fa-random"></i>
                             <i class="fas fa-step-backward"></i>
@@ -210,17 +213,18 @@
                             <i class="fas fa-step-forward"></i>
                             <i class="fas fa-redo-alt"></i>
                         </div>
-                        <div class="song-player-bar">
-                            <div class="time-elapsed"></div>
+
+                        <div class="song-player-bar smaller-text">
+                            <div class="time-elapsed">0:25</div>
                             <div class="bar">
-                                <div class="bar-total"></div>
                                 <div class="bar-elapsed"></div>
                             </div>
 
-                            <div class="time-total"></div>
+                            <div class="time-total">4:35</div>
                         </div>
-                    </div>
-                    <div class="play-bar-section">
+                    </section>
+
+                    <section class="play-bar-section">
                         <div class="queque-device-container">
                             <i class="fas fa-list"></i>
                             <i class="fas fa-tv"></i>
@@ -229,12 +233,10 @@
                         <div class="volume-bar">
                             <i class="fas fa-volume-up"></i>
                             <div class="bar">
-                                <div class="bar-total"></div>
                                 <div class="bar-elapsed"></div>
                             </div>
                         </div>
-
-                    </div>
+                    </section>
                 </footer>
             </div>
         </main>
