@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 /*RICORDA: l'hover nel view si attiva su tutto l'elemento non solo sull'immagine*/
 /*Dare altezza fissa a nav top in modo che quando l'altezza va sotto playlist le icone in basso spariscono*/
@@ -37,20 +37,16 @@ ul {
     list-style: none;
 }
 
-.bold {
-    font-weight: bold;
-}
-
 .small-text {
     font-size: 12px;
 }
 
 .medium-text {
-
+    
 }
 
 .small-title {
-
+    font-size: 16px;
 }
 
 .big-title {
@@ -59,6 +55,10 @@ ul {
 
 .opacity {
 
+}
+
+.round {
+    border-radius: 50%;
 }
 
 /*Main e wrapper*/
@@ -126,7 +126,6 @@ ul {
 
 #profile img {
     background-color: #7F7F7F;
-    border-radius: 50%;
     height: 25px;
     width: 25px;
 }
@@ -178,6 +177,44 @@ ul {
 .main-view .main-view-menu ul li a{
     color: #7B7D82;
 }
+
+.main-view .music-gallery-container {
+    margin: 20px;
+}
+
+.main-view .music-gallery-container .big-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.main-view .music-gallery-container .big-title h2 {
+    margin-bottom: 10px;
+}
+
+.main-view .music-gallery-container .small-text {
+    color: #7B7D82;
+}
+
+.main-view .music-gallery-container .music-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-view .music-gallery-container .music-container .music-item {
+    width: calc(50% - 5px);
+    margin: 5px 0;
+    text-align: center;
+}
+
+.main-view .music-gallery-container .music-container .music-item img {
+    width: 100%;
+}
+
+.main-view .music-gallery-container .music-container .music-item .music-title {
+    margin: 10px 0;
+}
+
 
 /* Barra di riproduzione in basso */
 .play-bar {
