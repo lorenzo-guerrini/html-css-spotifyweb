@@ -5,92 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <main>
-        <div class="main-container">
-            <!-- Barra laterale a destra -->
-            <div class="main-nav">
-                <nav>
-                    <div class="nav-section">
+    <div id="wrapper">
+        <main>
+            <div class="main-container">
+
+                <!-- Barra laterale a destra -->
+                <nav class="main-nav">
+
+                    <!-- Nav top -->
+                    <section class="nav-section top">
                         <div id="logo" class="nav-item">
-                            <img src="img/logo-small.svg" alt="spotify" id="logo-small">
+                            <a href="#">
+                                <img src="img/logo-small.svg" alt="spotify" id="logo-small">
+                            </a>
                         </div>
 
-                        <div class="nav-item">
-                            <img src="img/home.svg" alt="home" class="nav-item-icon">
-                            <div class="nav-item-name">
-                            </div>
+                        <div class="nav-menu">
+                            <ul>
+                                <li class="nav-item">
+                                    <a href="#">
+                                        <img src="img/home.svg" alt="home" class="nav-item-icon">
+                                        <div class="nav-item-name">
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#">
+                                        <img src="img/search.svg" alt="search" class="nav-item-icon">
+                                        <div class="nav-item-name">
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#">
+                                        <img src="img/libreria.svg" alt="library" class="nav-item-icon">
+                                        <div class="nav-item-name">
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="nav-item">
-                            <img src="img/search.svg" alt="search" class="nav-item-icon">
-                            <div class="nav-item-name">
-                            </div>
+                        <!-- Nav playlists -->
+                        <div class="nav-playlists">
                         </div>
+                    </section>
 
-                        <div class="nav-item">
-                            <img src="img/libreria.svg" alt="library" class="nav-item-icon">
-                            <div class="nav-item-name">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="nav-playlists">
-                    </div>
-
-                    <div class="nav-section">
-                        <div class="nav-item">
-                            <img src="img/download.svg" alt="download" id="download-icon" class="nav-item-icon">
-                            <div class="nav-item-name">
-                            </div>
+                    <!-- Nav bottom -->
+                    <section class="nav-section">
+                        <div id="download" class="nav-item">
+                            <a href="#">
+                                <img src="img/download.svg" alt="download" class="nav-item-icon">
+                                <div class="nav-item-name">
+                                </div>
+                            </a>
                         </div>
 
                         <div id="profile" class="nav-item">
-                            <img src="img/profile.svg" alt="profile" id="profile-icon" class="nav-item-icon">
-                            <div class="nav-item-name">
+                            <a href="#">
+                                <img src="img/profile.svg" alt="profile" class="nav-item-icon">
+                                <div class="nav-item-name">
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </nav>
+
+                <!-- Main view -->
+                <div class="main-view">
+
+                    <!-- Sezione "Effettua l'upgrade" in alto -->
+                    <div class="main-view-top">
+                        <header>
+                            <div class="small-text bold">
+                                <a href="#" id="upgrade">EFFETTUA L'UPGRADE</a>
                             </div>
+                        </header>
+                    </div>
+
+                    <div class="main-view-menu bold small-text">
+                        <ul>
+                            <li><a href="#">In evidenza</a></li>
+                            <li><a href="#">Podcast</a></li>
+                            <li><a href="#">Classifiche</a></li>
+                            <li><a href="#">Generi e mood</a></li>
+                            <li><a href="#">Nuove uscite</a></li>
+                            <li><a href="#">Scopri</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Barra di riproduzione in basso -->
+            <div class="play-bar">
+                <footer>
+                    <div class="play-bar-section">
+                        <div class="playing-song">
+                            <img src="" alt="">
+                            <div class="playing-song-title">Sinister</div>
+                            <div class="playing-song-artist">Brano Nome</div>
+                        </div>
+
+                        <div class="like-save-container">
+                            <i class="far fa-heart"></i>
+                            <i class="far fa-folder"></i>
                         </div>
                     </div>
-                </nav>
-            </div>
-
-            <!-- Main view -->
-            <div class="main-view">
-
-                <!-- Sezione "Effettua l'upgrade" in alto -->
-                <div class="main-view-top">
-                    <header>
-                        <div class="small-text bold">
-                            <a href="#" id="upgrade">EFFETTUA L'UPGRADE</a>
+                    <div class="play-bar-section">
+                        <div class="song-player-controls">
+                            <i class="fas fa-random"></i>
+                            <i class="fas fa-step-backward"></i>
+                            <i class="far fa-play-circle"></i>
+                            <i class="fas fa-step-forward"></i>
+                            <i class="fas fa-redo-alt"></i>
                         </div>
-                    </header>
-                </div>
+                        <div class="song-player-bar">
+                            <div class="time-elapsed"></div>
+                            <div class="bar">
+                                <div class="bar-total"></div>
+                                <div class="bar-elapsed"></div>
+                            </div>
 
-                <div class="main-view-menu bold small-text">
-                    <ul>
-                        <li><a href="#">In evidenza</a></li>
-                        <li><a href="#">Podcast</a></li>
-                        <li><a href="#">Classifiche</a></li>
-                        <li><a href="#">Generi e mood</a></li>
-                        <li><a href="#">Nuove uscite</a></li>
-                        <li><a href="#">Scopri</a></li>
-                    </ul>
-                </div>
+                            <div class="time-total"></div>
+                        </div>
+                    </div>
+                    <div class="play-bar-section">
+                        <div class="queque-device-container">
+                            <i class="fas fa-list"></i>
+                            <i class="fas fa-tv"></i>
+                        </div>
 
-                
+                        <div class="volume-bar">
+                            <i class="fas fa-volume-up"></i>
+                            <div class="bar">
+                                <div class="bar-total"></div>
+                                <div class="bar-elapsed"></div>
+                            </div>
+                        </div>
 
+                    </div>
+                </footer>
             </div>
-        </div>
-
-
-        <!-- Barra di riproduzione in basso -->
-        <div class="play-bar">
-            <footer>
-
-            </footer>
-        </div>
-    </main>
-
+        </main>
+    </div>
 </body>
 </html>

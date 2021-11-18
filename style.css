@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/*RICORDA: l'hover nel view si attiva su tutto l'elemento non solo sull'immagine*/
+/*Dare altezza fissa a nav top in modo che quando l'altezza va sotto playlist le icone in basso spariscono*/
+
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +25,16 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color: white;
 }
 
 a {
     text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
 }
 
 .bold {
@@ -48,10 +57,22 @@ a {
 
 }
 
-/*Main*/
+.opacity {
+
+}
+
+/*Main e wrapper*/
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
 .main-container {
     height: calc(100vh - 90px);
     display: flex;
+    overflow: hidden;
 }
 
 /* Barra laterale a destra */
@@ -61,13 +82,17 @@ a {
     align-items: center;
 }
 
+.nav-section.top {
+    overflow-y: hidden;
+}
+
 .main-nav {
     height: 100%;
     width: 50px;
     background-color: black;
 }
 
-.main-nav nav {
+.main-nav {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -75,12 +100,12 @@ a {
     align-items: center;
 }
 
-.main-nav nav .nav-item-icon {
+.nav-item-icon {
     width: 25px;
     color: #D1D1D1;
 }
 
-.main-nav nav .nav-item {
+.main-nav .nav-item {
     margin: 3px 0;
     opacity: 80%;
 }
@@ -94,12 +119,12 @@ a {
     margin: 5px 0;
 }
 
-#download-icon {
+#download img {
     width: 15px;
     margin-bottom: 10px;
 }
 
-#profile-icon {
+#profile img {
     background-color: #7F7F7F;
     border-radius: 50%;
     height: 25px;
@@ -122,11 +147,14 @@ a {
     position: fixed;
 }
 
+.main-view .main-view-top header {
+    text-align: center;
+}
+
 .main-view .main-view-top header a{
     position: absolute;
     top: 25px;
     right: 20px;
-    color: white;
     border: 1px solid white ;
     padding: 10px 40px;
     border-radius: 20px;
@@ -137,7 +165,6 @@ a {
 }
 
 .main-view .main-view-menu ul {
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -159,4 +186,3 @@ a {
     background-color: #2C2C2C;
     bottom: 0;
 }
-
