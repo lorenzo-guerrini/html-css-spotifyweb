@@ -149,7 +149,7 @@ ul {
 @media screen and (min-width: 576px) {
 
     .main-nav {
-        width: 330px;
+        width: 230px;
         align-items: flex-start;
     }
 
@@ -363,7 +363,10 @@ ul {
 }
 
 @media screen and (min-width: 576px) {
-
+    .main-view, .main-view-top {
+        width: calc(100% - 230px);
+    }
+    
 }
 
 /* Barra di riproduzione in basso */
