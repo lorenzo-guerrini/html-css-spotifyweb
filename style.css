@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-/*RICORDA: l'hover nel view si attiva su tutto l'elemento non solo sull'immagine*/
-/*Dare altezza fissa a nav top in modo che quando l'altezza va sotto playlist le icone in basso spariscono*/
-
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +25,7 @@ body {
     color: white;
 }
 
+/*Ricorrenti*/
 a {
     text-decoration: none;
     color: white;
@@ -61,6 +59,43 @@ ul {
     border-radius: 50%;
 }
 
+.bar {
+    width: 100%;
+    height: 4px;
+    background-color: #7B7D82;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.bar-current {
+    height: 4px;
+    background-color: #BDBDBD;
+    border-radius: 4px;
+    position: absolute;
+    transition: 1s;
+}
+
+.bar:hover .bar-current {
+    background-color: #B3ED57;
+}
+
+.bar-pointer {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -4px;
+    left: -6px;
+    opacity: 0%;
+    transition: 1s;
+}
+
+.bar:hover .bar-pointer {
+    opacity: 100%;;
+}
+
 /*Main e wrapper*/
 #wrapper {
     width: 100%;
@@ -76,16 +111,6 @@ ul {
 }
 
 /* Barra laterale a sinistra */
-.nav-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-section.top {
-    overflow-y: hidden;
-}
-
 .main-nav {
     height: 100%;
     width: 50px;
@@ -94,16 +119,39 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transition: 1s;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-section.top {
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .nav-item.active {
     position: relative;
 }
 
+.nav-item {
+    margin: 3px 0;
+    opacity: 80%;
+    transition: 1s;
+}
+
+.nav-item:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
 .nav-item .active-pointer {
     position: absolute;
     height: 35px;
-    width: 2px;
+    width: 3px;
     background-color: #CFFC56;
     top: -5px;
     left: 0;
@@ -117,16 +165,6 @@ ul {
 
 .nav-item-name {
     display: none;
-}
-
-.main-nav .nav-item {
-    margin: 3px 0;
-    opacity: 80%;
-}
-
-.nav-item:hover {
-    opacity: 100%;
-    cursor: pointer;
 }
 
 #logo, #profile {
@@ -148,6 +186,7 @@ ul {
 
 .playlist-container {
     display: none;
+    overflow-y: auto;
 }
 
 #download img {
@@ -159,6 +198,12 @@ ul {
     background-color: #7F7F7F;
     height: 25px;
     width: 25px;
+}
+
+@media screen and (max-height: 300px) {
+    .nav-section.bottom {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 576px) {
@@ -210,15 +255,15 @@ ul {
         margin-bottom: 20px;
     }
 
-    #nav-playlist-section-title {
-        opacity: 100%;
-        margin-bottom: 10px;
-    }
-
     .nav-playlists {
         display: block;
         margin-top: 15px;
         width: 200px;
+    }
+
+    #nav-playlist-section-title {
+        opacity: 100%;
+        margin-bottom: 10px;
     }
 
     .nav-playlists .new-playlist {
@@ -235,6 +280,7 @@ ul {
         align-items: center;
         color: black;
         font-size: 20px;
+        transition: 1s;
     }
 
     .nav-playlists .new-playlist:hover .new-playlist-button {
@@ -247,11 +293,16 @@ ul {
 
     .playlist-container {
         display: block;
-        overflow-y: auto;
+        width: 210px;
     }
 
-    .playlist.nav-item {
+    .playlist-container .playlist {
         margin: 20px 0;
+    }
+
+    .nav-section.bottom .nav-item {
+        padding: 8px 0;
+        margin-left: 20px;
     }
 
     .nav-section.bottom .nav-item a .nav-item-icon {
@@ -268,17 +319,12 @@ ul {
     #download img {
         margin-bottom: 0;
     }
-    
-    .nav-section.bottom .nav-item {
-        padding: 8px 0;
-        margin-left: 20px;
-    }
-
 }
 
 /*Main view*/
 .main-view, .main-view-top {
     width: calc(100% - 50px);
+    transition: 1s;
 }
 
 .main-view {
@@ -286,58 +332,56 @@ ul {
     overflow-y: scroll;
 }
 
-.main-view .main-view-top {
+.main-view-top {
     background-color: rgba(0, 0, 0, 0.5);
     height: 90px;
     position: fixed;
     z-index: 999;
 }
 
-.main-view .main-view-top header {
+.main-view-top header {
     text-align: center;
 }
 
-.main-view .main-view-top header a{
+.main-view-top header a{
     position: absolute;
     top: 25px;
     right: 20px;
     border: 1px solid white ;
     padding: 10px 40px;
     border-radius: 20px;
+    transition: 1s;
 }
 
-.main-view .main-view-top header a:hover{
+.main-view-top header a:hover{
     transform: scale(110%);
 }
 
-.main-view .main-view-menu {
+.main-view-menu {
     margin-top: 90px;
 }
 
-.main-view .main-view-menu ul {
+.main-view-menu ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.main-view .main-view-menu ul li {
+.main-view-menu ul li {
     text-transform: uppercase;
     margin: 20px 15px;
 }
 
-.main-view .main-view-menu ul li a{
+.main-view-menu ul li a{
     color: #7B7D82;
+    transition: 1s;
 }
 
-.main-view .main-view-menu ul li:hover a{
+.main-view-menu ul li:hover a{
     color: white;
 }
 
-.main-view .main-view-menu .active {
-    
-}
-
-.main-view .main-view-menu .active .active-pointer {
+.main-view-menu .active .active-pointer {
     width: 30px;
     height: 2px;
     background-color: #CFFC56;
@@ -373,23 +417,20 @@ ul {
     margin: 5px 0;
     text-align: center;
     cursor: pointer;
+    transition: 1s;
 }
 
 .main-view .music-gallery-container .music-container .music-item .music-item-cover {
     position: relative;
 }
 
-.main-view .music-gallery-container .music-container .music-item img {
-    width: 100%;
-}
-
-.main-view .music-gallery-container .music-container .music-item:hover i {
-    display: block;
-    font-size: 50px;
-}
-
 .main-view .music-gallery-container .music-container .music-item .music-title {
     margin: 10px 0;
+}
+
+.main-view .music-gallery-container .music-container .music-item img {
+    width: 100%;
+    transition: 1s;
 }
 
 .main-view .music-gallery-container .music-container .music-item:hover img{
@@ -397,11 +438,27 @@ ul {
 }
 
 .main-view .music-gallery-container .music-container .music-item i {
-    display: none;
+    opacity: 0%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 1s;
+}
+
+.main-view .music-gallery-container .music-container .music-item:hover i {
+    opacity: 100%;
+    font-size: 50px;
+}
+
+@media screen and (max-height: 290px) {
+    .main-view-top {
+        display: none;
+    }
+
+    .main-view .main-view-menu {
+        margin-top: 0px;
+    }
 }
 
 @media screen and (min-width: 576px) {
@@ -411,13 +468,13 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
+    .main-view .music-gallery-container .music-container {
+        justify-content: flex-start;
+    }
+
     .main-view .music-gallery-container .music-container .music-item {
         width: calc(25% - 8px);
         margin-left: 8px;
-    }
-
-    .main-view .music-gallery-container .music-container {
-        justify-content: flex-start;
     }
 }
 
@@ -452,6 +509,7 @@ footer {
 .play-bar-section {
     display: flex;
     align-items: center;
+    transition: 1s;
 }
 
 .play-bar-section.left {
@@ -459,16 +517,18 @@ footer {
     margin-right: 45px
 }
 
-.play-bar .playing-song img {
-    width: 30px;
-    height: 30px;
-}
-
 .play-bar-section .playing-song{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+.play-bar .playing-song img {
+    width: 30px;
+    height: 30px;
+    transition: 1s;
+}
+
 .play-bar-section .playing-song .playing-song-info {
     margin-left: 10px;
     margin-right: 25px;
@@ -489,11 +549,13 @@ footer {
     display: flex;
     flex-direction: column;
     color: #7B7D82;
+    transition: 1s;
 }
 
 .like-save-container i {
     margin-top: 1px;
     cursor: pointer;
+    transition: 1s;
 }
 
 .like-save-container i:hover {
@@ -512,6 +574,7 @@ footer {
     width: 200px;
     align-items: center;
     margin-bottom: 15px;
+    transition: 1s;
 }
 
 .song-player-controls i {
@@ -521,6 +584,7 @@ footer {
 .song-player-controls .far.fa-play-circle {
     font-size: 30px;
     margin: 0 10px;
+    transition: 1s;
 }
 
 .song-player-controls .far.fa-play-circle:hover {
@@ -535,41 +599,6 @@ footer {
     margin-bottom: 15px;
 }
 
-.bar {
-    width: 100%;
-    height: 4px;
-    background-color: #7B7D82;
-    border-radius: 4px;
-    position: relative;
-    cursor: pointer;
-}
-
-.bar-current {
-    height: 4px;
-    background-color: #BDBDBD;
-    border-radius: 4px;
-    position: absolute;
-}
-
-.bar-pointer {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    top: -4px;
-    left: -6px;
-    display: none;
-}
-
-.bar:hover .bar-current {
-    background-color: #B3ED57;
-}
-
-.bar:hover .bar-pointer {
-    display: block;
-}
-
 .song-player-bar .bar {
     margin: 0 10px;
 }
@@ -582,10 +611,6 @@ footer {
     margin-left: 20%;
 }
 
-.queque-device-container {
-    display: flex;
-}
-
 .play-bar-section.right {
     width: 210px;
     margin-left: 10px;
@@ -595,6 +620,10 @@ footer {
     margin-left: 10px;
     font-size: 12px;
     cursor: pointer;
+}
+
+.queque-device-container {
+    display: flex;
 }
 
 .volume-bar {
@@ -650,13 +679,13 @@ footer {
 
 @media screen and (min-width: 768px) {
 
+    .play-bar-section.left {
+        margin-right: 140px;
+    }
+
     .like-save-container {
         flex-direction: row;
         margin-left: 30px;
-    }
-
-    .play-bar-section.left {
-        margin-right: 140px;
     }
 
     .like-save-container i {
@@ -668,12 +697,12 @@ footer {
         margin-right: 40px;
     }
 
-    .play-bar-section.right {
-        width: 225px;
-    }
-
     .song-player-bar .bar {
         margin: 0 25px;
+    }
+
+    .play-bar-section.right {
+        width: 225px;
     }
 
     .volume-bar .bar {
