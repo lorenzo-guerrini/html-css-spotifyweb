@@ -53,14 +53,6 @@ ul {
     font-size: 16px;
 }
 
-.big-title {
-
-}
-
-.opacity {
-
-}
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -104,6 +96,20 @@ ul {
     align-items: center;
 }
 
+.nav-item.active {
+    position: relative;
+}
+
+.nav-item .active-pointer {
+    position: absolute;
+    height: 35px;
+    width: 2px;
+    background-color: #CFFC56;
+    top: -5px;
+    left: 0;
+    display: none;
+}
+
 .nav-item-icon {
     width: 25px;
     color: #D1D1D1;
@@ -116,6 +122,11 @@ ul {
 .main-nav .nav-item {
     margin: 3px 0;
     opacity: 80%;
+}
+
+.nav-item:hover {
+    opacity: 100%;
+    cursor: pointer;
 }
 
 #logo, #profile {
@@ -132,6 +143,10 @@ ul {
 }
 
 .nav-playlists {
+    display: none;
+}
+
+.playlist-container {
     display: none;
 }
 
@@ -168,6 +183,10 @@ ul {
         align-items: center;
     }
 
+    .nav-item .active-pointer {
+        display: block;
+    }
+
     .nav-menu .nav-item {
         margin-bottom: 10px;
     }
@@ -202,8 +221,6 @@ ul {
         width: 200px;
     }
 
-    
-
     .nav-playlists .new-playlist {
         display: flex;
         align-items: center;
@@ -220,15 +237,20 @@ ul {
         font-size: 20px;
     }
 
+    .nav-playlists .new-playlist:hover .new-playlist-button {
+        background-color: white;
+    }
+
     .nav-playlists .new-playlist-description {
         margin-left: 10px;
     }
 
     .playlist-container {
+        display: block;
         overflow-y: auto;
     }
 
-    .playlist {
+    .playlist.nav-item {
         margin: 20px 0;
     }
 
@@ -284,6 +306,10 @@ ul {
     border-radius: 20px;
 }
 
+.main-view .main-view-top header a:hover{
+    transform: scale(110%);
+}
+
 .main-view .main-view-menu {
     margin-top: 90px;
 }
@@ -301,6 +327,22 @@ ul {
 
 .main-view .main-view-menu ul li a{
     color: #7B7D82;
+}
+
+.main-view .main-view-menu ul li:hover a{
+    color: white;
+}
+
+.main-view .main-view-menu .active {
+    
+}
+
+.main-view .main-view-menu .active .active-pointer {
+    width: 30px;
+    height: 2px;
+    background-color: #CFFC56;
+    margin: auto;
+    margin-top: 3px;
 }
 
 .main-view .music-gallery-container {
@@ -437,6 +479,12 @@ footer {
     width: 30px;
 }
 
+.playing-song-artist:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .like-save-container {
     display: flex;
     flex-direction: column;
@@ -445,6 +493,11 @@ footer {
 
 .like-save-container i {
     margin-top: 1px;
+    cursor: pointer;
+}
+
+.like-save-container i:hover {
+    color: white;
 }
 
 .play-bar-section.center {
@@ -461,9 +514,17 @@ footer {
     margin-bottom: 15px;
 }
 
+.song-player-controls i {
+    cursor: pointer;
+}
+
 .song-player-controls .far.fa-play-circle {
     font-size: 30px;
     margin: 0 10px;
+}
+
+.song-player-controls .far.fa-play-circle:hover {
+    transform: scale(110%);
 }
 
 .play-bar-section.center .song-player-bar {
@@ -479,11 +540,46 @@ footer {
     height: 4px;
     background-color: #7B7D82;
     border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
 
+.bar-current {
+    height: 4px;
+    background-color: #BDBDBD;
+    border-radius: 4px;
+    position: absolute;
+}
+
+.bar-pointer {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -4px;
+    left: -6px;
+    display: none;
+}
+
+.bar:hover .bar-current {
+    background-color: #B3ED57;
+}
+
+.bar:hover .bar-pointer {
+    display: block;
 }
 
 .song-player-bar .bar {
     margin: 0 10px;
+}
+
+.song-player-bar .bar .bar-current {
+    width: 20%;
+}
+
+.song-player-bar .bar .bar-pointer {
+    margin-left: 20%;
 }
 
 .queque-device-container {
@@ -498,6 +594,7 @@ footer {
 .play-bar-section.right i {
     margin-left: 10px;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .volume-bar {
@@ -509,6 +606,14 @@ footer {
 
 .volume-bar .bar {
     margin-left: 7px;
+}
+
+.volume-bar .bar .bar-current {
+    width: 20%;
+}
+
+.volume-bar .bar .bar-pointer {
+    margin-left: 20%;
 }
 
 @media screen and (min-width: 576px) {
@@ -537,41 +642,41 @@ footer {
     .play-bar-section.right i {
         margin-left: 15px;
     }
+
+    .volume-bar .bar {
+        margin-left: 10px;
+    }
 }
 
 @media screen and (min-width: 768px) {
-
-    .play-bar-section.left {
-        margin-right: 140px;
-    }
 
     .like-save-container {
         flex-direction: row;
         margin-left: 30px;
     }
 
+    .play-bar-section.left {
+        margin-right: 140px;
+    }
+
     .like-save-container i {
         margin-right: 15px;
     }
 
-    .play-bar-section.right {
-        width: 400px;
-        margin-left: 40px;
-    }
-
-    .play-bar-section.right i {
-        margin-left: 20px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-
     .play-bar-section.center {
         width: 37%;
+        margin-right: 40px;
     }
 
     .play-bar-section.right {
-        width: 230px;
-        margin-left: 40px;
+        width: 225px;
+    }
+
+    .song-player-bar .bar {
+        margin: 0 25px;
+    }
+
+    .volume-bar .bar {
+        margin-left: 15px;
     }
 }

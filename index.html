@@ -27,12 +27,14 @@
 
                         <div class="nav-menu small-text">
                             <ul>
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a href="#">
                                         <img src="img/home.svg" alt="home" class="nav-item-icon">
                                         <div class="nav-item-name">
                                             Home</div>
                                     </a>
+
+                                    <div class="active-pointer"></div>
                                 </li>
 
                                 <li class="nav-item">
@@ -70,46 +72,46 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="playlist-container nav-item small-text">
 
-                            <div class="playlist">
+                        <div class="playlist-container  small-text">
+
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
                             </div>
 
-                            <div class="playlist">
+                            <div class="playlist nav-item">
                                 <a href="#" class="playlist-name">
                                     Nome Playlist
                                 </a>
@@ -158,7 +160,8 @@
                     <!-- Menu centrale -->
                     <div class="main-view-menu small-text">
                         <ul>
-                            <li><a href="#">In evidenza</a></li>
+                            <li class="active"><a href="#">In evidenza</a>
+                            <div class="active-pointer"></div></li>
                             <li><a href="#">Podcast</a></li>
                             <li><a href="#">Classifiche</a></li>
                             <li><a href="#">Generi e mood</a></li>
@@ -316,7 +319,9 @@
                         <div class="song-player-bar smaller-text">
                             <div class="time-elapsed">0:25</div>
                             <div class="bar">
-                                <div class="bar-elapsed"></div>
+                                <div class="bar-current">
+                                </div>
+                                <div class="bar-pointer"></div>
                             </div>
 
                             <div class="time-total">4:35</div>
@@ -332,7 +337,8 @@
                         <div class="volume-bar">
                             <i class="fas fa-volume-up"></i>
                             <div class="bar">
-                                <div class="bar-elapsed"></div>
+                                <div class="bar-current"></div>
+                                <div class="bar-pointer"></div>
                             </div>
                         </div>
                     </section>
